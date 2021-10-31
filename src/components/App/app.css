@@ -1,0 +1,17 @@
+.app {
+  display: grid;
+  place-items: center;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+
+  width: 80%;
+}
+
+.div-title {
+  text-align: center;
+  margin: 0.8rem 0;
+}
+
