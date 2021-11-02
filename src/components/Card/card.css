@@ -1,0 +1,16 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  width: 25ch;
+  padding: 0.5rem;
+  outline: 1px solid red;
+}
+
+.card-title {
+  margin-bottom: 10px;
+}
+
+.card-body > * {
+  margin: 10px 0;
+}
