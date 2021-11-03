@@ -12,16 +12,16 @@ export default function Card(props) {
 
   return(
     <div className="card">
-      <h3 className="card-title">{data && data.timezone}</h3>
-      <hr />
+      <div className="card-header">
+        <h1>{/*Sunday*/}</h1>
+        <p>{/*December 23*/}</p>
+        <p><span>-0-</span>{/* Berlin*/}</p>
+      </div>
       <div className="card-body">
-        <p>Sunrise: <span>{data && dateToString(data.current.sunrise)}</span></p>
-        <p>Sunset: <span>{data && dateToString(data.current.sunset)}</span></p>
-        <p>Temperature: <span>{data && data.current.temp}</span></p>
-        <p>Feels Like: <span>{data && data.current.feels_like}</span></p>
-        <p>Humidity: <span>{data && data.current.humidity}</span></p>
-        <p>Pressure: <span>{data && data.current.pressure}</span></p>
-        <p>Wind Speed: <span>{data && data.current.wind_speed}</span></p>
+        <img className="card-icon" src="http://openweathermap.org/img/wn/10d@2x.png"/>
+        <h1>{/*-3&#8451;*/}</h1>
+        <p>Feels like <span>{/*-4&#8451;*/}</span></p>
+        <p>{/*Hail*/}</p>
       </div>
     </div>
   );

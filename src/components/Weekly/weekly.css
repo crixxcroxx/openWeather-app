@@ -1,0 +1,40 @@
+.weekly-forecast {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 64px 0;
+  padding: 64px;
+  border-radius: var(--border-radius-secondary);
+  background-color: aliceblue;
+}
+
+.widget {
+  flex-basis: 45%;
+
+  padding: 32px 0;
+  margin: 16px 16px;
+  text-align: center;
+  border-radius: var(--border-radius-secondary);
+  background-color: burlywood;
+}
+
+.widget-icon {
+  width: 150px;
+  height: 150px;
+}
+
+@media screen and (min-width: 600px) {
+  .weekly-forecast {
+    margin: 32px 0 0 0;
+    padding: 8px;
+  }
+  .widget {
+    flex: 0 0 4ch;
+    margin: 16px 8px;
+    padding: 8px 0;
+  }
+  .widget-icon {
+    width: 50px;
+    height: 50px;
+  }
+}

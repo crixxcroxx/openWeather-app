@@ -1,16 +1,28 @@
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
-  width: 25ch;
-  padding: 0.5rem;
-  outline: 1px solid red;
+  padding: 32px 64px;
+  border-radius: var(--border-radius-main);
+  background-color: blue;
 }
 
-.card-title {
-  margin-bottom: 10px;
+.card-icon {
+  width: 250px;
+  height: 250px;
 }
 
-.card-body > * {
-  margin: 10px 0;
+@media screen and (min-width: 600px) {
+  .card {
+    width: 32ch;
+    padding: 32px;
+  }
+  .card p {
+    font-size: 20px;
+  }
+  .card-icon {
+    width: 100px;
+    height: 100px;
+  }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './app.css';
 import Card from '../Card/Card';
+import Side from '../Side/Side';
 
 export default function App() {
 //   https://openweathermap.org/api/one-call-api
@@ -26,7 +27,8 @@ export default function App() {
 
   return (
     <div className="app">
-      <Card data={data} />
+      <Card />
+      <Side />
     </div>
   );
 }
