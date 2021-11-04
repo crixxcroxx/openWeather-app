@@ -10,18 +10,22 @@ export default function Card(props) {
     return timeString
   }
 
+  function getIcon(icon_code) {
+    return `http://openweathermap.org/img/wn/${icon_code}@2x.png`
+  }
+
   return(
     <div className="card">
       <div className="card-header">
         <h1>{/*Sunday*/}</h1>
-        <p>{/*December 23*/}</p>
-        <p><span>-0-</span>{/* Berlin*/}</p>
+        <p>{data && data.dt}</p>
+        <p><span></span>{data && data.city}</p>
       </div>
       <div className="card-body">
-        <img className="card-icon" src="http://openweathermap.org/img/wn/10d@2x.png"/>
-        <h1>{/*-3&#8451;*/}</h1>
-        <p>Feels like <span>{/*-4&#8451;*/}</span></p>
-        <p>{/*Hail*/}</p>
+        <img className="card-icon" src={getIcon(data && data.icon)}/>
+        <h1>{data && data.temp}&#8451;</h1>
+        <p>Feels like <span>{data && data.feels_like}&#8451;</span></p>
+        <p>{data && data.short_des}</p>
       </div>
     </div>
   );

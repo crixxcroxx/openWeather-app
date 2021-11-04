@@ -18,6 +18,10 @@
   background-color: burlywood;
 }
 
+.widget > * {
+  display: block;
+}
+
 .widget-icon {
   width: 150px;
   height: 150px;
