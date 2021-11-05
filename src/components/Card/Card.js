@@ -1,31 +1,21 @@
 import './card.css';
+import date from '../../helpers/getDate';
 
 export default function Card(props) {
-  const { data } = props
-
-  function dateToString(time) {
-    let setTime = new Date(0);
-    setTime.setSeconds(time);
-    let timeString = setTime.toISOString().substr(11, 8);
-    return timeString
-  }
-
-  function getIcon(icon_code) {
-    return `http://openweathermap.org/img/wn/${icon_code}@2x.png`
-  }
+  const data = props.currentShort
 
   return(
     <div className="card">
       <div className="card-header">
-        <h1>{/*Sunday*/}</h1>
-        <p>{data && data.dt}</p>
-        <p><span></span>{data && data.city}</p>
+        <h2>{data && date.getDay(data.dt)}</h2>
+        <p>{data && date.getDate(data.dt)}, {data && date.getMonth(data.dt)}</p>
+        <p><span></span>{data && data.city}, {data && data.country}</p>
       </div>
       <div className="card-body">
-        <img className="card-icon" src={getIcon(data && data.icon)}/>
+        <img className="card-icon" src={data && data.weather_icon}/>
         <h1>{data && data.temp}&#8451;</h1>
         <p>Feels like <span>{data && data.feels_like}&#8451;</span></p>
-        <p>{data && data.short_des}</p>
+        <p>{data && data.weather_desc}</p>
       </div>
     </div>
   );

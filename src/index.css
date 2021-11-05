@@ -27,8 +27,12 @@ body {
   body {
     place-items: center;
     font-size: 16px;
+    line-height: 1.5;
   }
   h1 {
     font-size: 50px;
+  }
+  h2 {
+    font-size: 40px;
   }
 }
