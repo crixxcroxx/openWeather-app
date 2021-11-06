@@ -3,16 +3,16 @@ import getShortForecast from '../helpers/getShortForecast';
 import getDetailedForecast from '../helpers/getDetailedForecast';
 import getUpcomingForecast from '../helpers/getUpcomingForecast';
 
-export default function useFetchForecast(location) {
-  const [isLoading, setIsLoading] = useState(true)
+export default function useFetchForecast() {
+  const [isLoading, setIsLoading] = useState(false)
   const [fcast, setFcast] = useState(false)
-
-  const key = "31040fa663c3e413a9eb4265bafd97de"
-  const base_url = "https://api.openweathermap.org/data/2.5/"
-  const current_f_url = `${base_url}weather?q=${location}&appid=${key}`
-
   const [data, setData] = useState({})
-  useEffect(() => getData(), [])
+  const key = "31040fa663c3e413a9eb4265bafd97de"
+  const base_url = "https://api.openweathermap.org/data/2.5"
+
+  async function searchLocation(location) {
+    await getData(location)
+  }
 
   async function fetchData(url) {
     let response = await fetch(url)
@@ -22,10 +22,13 @@ export default function useFetchForecast(location) {
     return val
   }
 
-  async function getData() {
-    let c = await fetchData(`${current_f_url}`)
-    const daily_f_url =`${base_url}onecall?lat=${c.coord.lat}&lon=${c.coord.lon}&exclude=hourly,minutely&units=metric&appid=${key}`
-    let forecast = await fetchData(`${daily_f_url}`)
+  async function getData(location) {
+    setIsLoading(true)
+
+    const weather_url = `${base_url}/weather?q=${location}&appid=${key}`
+    let c = await fetchData(weather_url)
+    const onecall_url = `${base_url}/onecall?lat=${c.coord.lat}&lon=${c.coord.lon}&exclude=hourly,minutely&units=metric&appid=${key}`
+    let forecast = await fetchData(`${onecall_url}`)
 
     forecast.current.city = c.name
     forecast.current.country = c.sys.country
@@ -46,5 +49,5 @@ export default function useFetchForecast(location) {
     setFcast(true)
   }
 
-  return { data, isLoading, fcast }
+  return { data, isLoading, fcast, searchLocation }
 }

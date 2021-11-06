@@ -1,23 +1,34 @@
 import './app.css';
+import SearchBar from '../SearchBar/SearchBar';
 import Card from '../Card/Card';
 import Side from '../Side/Side';
 import useFetchForecast from '../../hooks/useFetchForecast';
 
 export default function App() {
-  const { data, isLoading, fcast: forecast } = useFetchForecast("manila")
+  const { data, isLoading, fcast: forecast, searchLocation } = useFetchForecast()
 
-  console.log(data, isLoading)
+  function submitSearch(value) {
+    searchLocation(value)
+  }
 
   return (
-    forecast && <>{
-      isLoading ? <i>Loading</i> :
-      <div className="app">
-        <Card currentShort={data.shortForecast} />
-        <Side
-          currentDetailed={data.detailedForecast}
-          upcoming={data.upcomingForecast}
-        />
-      </div>
-    }</>
+    <>
+      {!forecast &&
+        <>
+          { !isLoading &&<SearchBar handleForm={submitSearch}/> }
+          { isLoading && <i>Loading</i> }
+        </>
+      }
+      {forecast && <>
+        <SearchBar handleForm={submitSearch}/>
+        <div className="app">
+          <Card currentShort={data.shortForecast} />
+          <Side
+            currentDetailed={data.detailedForecast}
+            upcoming={data.upcomingForecast}
+          />
+        </div> </>
+      }
+    </>
   );
 }
