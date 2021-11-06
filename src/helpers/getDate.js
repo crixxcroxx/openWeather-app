@@ -1,37 +1,55 @@
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-const shortDays = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"]
+const shortDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+function getDateSuffix(d) {
+  let sDate = ""
+  //get only ones digit
+  const ones = d % 10
+
+  switch(ones) {
+    case 1:
+      sDate = `${d}st`
+      break;
+    case 2:
+      sDate = `${d}nd`
+      break;
+    case 3:
+      sDate = `${d}rd`
+      break;
+    default:
+      sDate = `${d}th`
+      break;
+  }
+
+  return sDate
+}
 
 const date = {
   getDate: unixtime => {
-    let dt = new Date(unixtime * 1000)
-    let currentDate = dt.getDate()
+    const dt = new Date(unixtime * 1000)
+    const currentDate = dt.getDate()
+    const suffixedDate = getDateSuffix(currentDate)
 
-    return currentDate
+    return suffixedDate
   },
   getDay: unixtime => {
-    let dt = new Date(unixtime * 1000)
-    let currentDay = days[dt.getDay()]
+    const dt = new Date(unixtime * 1000)
+    const currentDay = days[dt.getDay()]
 
     return currentDay
   },
   getShortDay: unixtime => {
-    let dt = new Date(unixtime * 1000)
-    let currentDay = shortDays[dt.getDay()]
+    const dt = new Date(unixtime * 1000)
+    const currentDay = shortDays[dt.getDay()]
 
     return currentDay
   },
   getMonth: unixtime => {
-    let dt = new Date(unixtime * 1000)
-    let currentMonth = months[dt.getMonth()]
+    const dt = new Date(unixtime * 1000)
+    const currentMonth = months[dt.getMonth()]
 
     return currentMonth
-  },
-  getYear: unixtime => {
-    let dt = new Date(unixtime * 1000)
-    let currentYear = dt.getFullYear()
-
-    return currentYear
   }
 
 }

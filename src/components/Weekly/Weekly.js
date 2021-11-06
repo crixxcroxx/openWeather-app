@@ -7,7 +7,7 @@ export default function Weekly(props) {
   return(
     <div className="weekly-forecast">
       {
-        data.map(item =>
+        props && data.map(item =>
           <div className="widget" key={item.dt}>
             <img className="widget-icon" src={item.weather_icon} />
             <p>{date.getShortDay(item.dt)}</p>

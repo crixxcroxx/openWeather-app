@@ -6,8 +6,8 @@ function addZero(t) {
 
 function getTime(unixtime) {
   const d = new Date(unixtime * 1000);
-  let h = addZero(d.getHours())
-  let m = addZero(d.getMinutes())
+  const h = addZero(d.getHours())
+  const m = addZero(d.getMinutes())
 
   return `${h} : ${m}`
 }

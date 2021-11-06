@@ -1,13 +1,14 @@
 import './side.css';
 import Weekly from '../Weekly/Weekly';
 
-export default function Side({ currentDetailed, upcoming }) {
+export default function Side(props) {
+  const { currentDetailed, upcoming } = props
 
   return(
     <div className="side">
       <div className="detailed-info">
         {//
-          Object.entries(currentDetailed).map(([key, value]) =>
+          props && Object.entries(currentDetailed).map(([key, value]) =>
             <div className="item" key={key}>
               <p className="label">{key}</p>
               <p className="value">{value}</p>

@@ -4,15 +4,20 @@ import Side from '../Side/Side';
 import useFetchForecast from '../../hooks/useFetchForecast';
 
 export default function App() {
-  let forecast = useFetchForecast("bulacan")
+  const { data, isLoading, fcast: forecast } = useFetchForecast("manila")
+
+  console.log(data, isLoading)
 
   return (
-    <div className="app">
-      <Card currentShort={forecast.shortForecast} />
-      <Side
-        currentDetailed={forecast.detailedForecast}
-        upcoming={forecast.upcomingForecast}
-      />
-    </div>
+    forecast && <>{
+      isLoading ? <i>Loading</i> :
+      <div className="app">
+        <Card currentShort={data.shortForecast} />
+        <Side
+          currentDetailed={data.detailedForecast}
+          upcoming={data.upcomingForecast}
+        />
+      </div>
+    }</>
   );
 }
