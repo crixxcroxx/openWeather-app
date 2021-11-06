@@ -1,18 +1,19 @@
 .weekly-forecast {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   margin: 64px 0;
-  padding: 64px;
+  padding: 32px;
   border-radius: var(--border-radius-secondary);
   background-color: aliceblue;
 }
 
 .widget {
-  flex-basis: 45%;
+  flex-basis: 100%;
 
   padding: 32px 0;
-  margin: 16px 16px;
+  margin: 16px 0;
   text-align: center;
   border-radius: var(--border-radius-secondary);
   background-color: burlywood;
@@ -23,12 +24,15 @@
 }
 
 .widget-icon {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 600px) {
   .weekly-forecast {
+    justify-content: flex-start;
+
     margin: 32px 0 0 0;
     padding: 8px;
   }

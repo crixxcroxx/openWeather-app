@@ -13,12 +13,11 @@ function getTime(unixtime) {
 }
 
 const getDetailedForecast = data => ({
-  humidity: data.current.humidity,
-  pressure: data.current.pressure,
-  dew_point: data.current.dew_point,
+  humidity: `${data.current.humidity} %`,
+  pressure: `${data.current.pressure} hPa`,
+  dew_point: `${data.current.dew_point} °C`,
   uvi: data.current.uvi,
-  wind_speed: data.current.wind_speed,
-  wind_deg: data.current.wind_deg,
+  wind_speed: `${data.current.wind_speed}m/s ${data.current.wind_deg}`,
   sunrise: getTime(data.current.sunrise),
   sunset: getTime(data.current.sunset)
 })
