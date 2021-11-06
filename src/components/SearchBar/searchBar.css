@@ -1,3 +1,13 @@
+.search-box {
+  display: grid;
+  place-items: center;
+
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--border-radius-main);
+  background-color: antiquewhite;
+}
+
 .search-bar {
   display: flex;
   flex-direction: column;

@@ -11,15 +11,17 @@ export default function SearchBar(props) {
   }
 
   return (
-    <form className="search-bar" onSubmit={search}>
-      <input
-        type="text"
-        name="location"
-        value={location}
-        onChange={e => setLocation(e.target.value)}
-        placeholder="Search City"
-      />
-      <button>Search</button>
-    </form>
+    <div className="search-box">
+      <form className="search-bar" onSubmit={search}>
+        <input
+          type="text"
+          name="location"
+          value={location}
+          onChange={e => setLocation(e.target.value)}
+          placeholder="Search City"
+        />
+        <button>Search</button>
+      </form>
+    </div>
   );
 }
