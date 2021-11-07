@@ -6,7 +6,7 @@
   margin: 64px 0;
   padding: 32px;
   border-radius: var(--border-radius-secondary);
-  background-color: aliceblue;
+  background-color: var(--clr-white-a);
 }
 
 .widget {
@@ -16,7 +16,8 @@
   margin: 16px 0;
   text-align: center;
   border-radius: var(--border-radius-secondary);
-  background-color: burlywood;
+  color: var(--clr-blue);
+  background-color: var(--clr-neutral);
 }
 
 .widget > * {

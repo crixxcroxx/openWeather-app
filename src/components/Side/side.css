@@ -1,10 +1,13 @@
 .item {
   display: flex;
   justify-content: space-between;
+
+  color: var(--clr-blue);
 }
 
 @media screen and (min-width: 600px) {
   .side {
     padding: 32px;
+    font-size: 18px;
   }
 }

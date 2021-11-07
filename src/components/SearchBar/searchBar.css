@@ -2,19 +2,34 @@
   display: grid;
   place-items: center;
 
-  padding: 0.5rem 0;
-  margin: 0.5rem 0;
-  border-radius: var(--border-radius-main);
-  background-color: antiquewhite;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--clr-neutral);
 }
 
 .search-bar {
   display: flex;
-  flex-direction: column;
+  gap: 10px;
+}
+
+input[type = text], button {
+  padding: 5px;
+}
+
+input[type = text] {
+  flex-basis: 78%;
+}
+
+button {
+  flex-basis: 20%;
 }
 
 @media screen and (min-width: 600px) {
-  .search-bar {
-    flex-direction: row;
+  input[type = text] {
+    width: 39rem;
+  }
+  .search-box {
+    margin: -0.5rem 0 0.5rem 0;
+    border-radius: var(--border-radius-main);
   }
 }
