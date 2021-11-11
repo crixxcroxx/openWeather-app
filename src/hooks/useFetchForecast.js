@@ -4,6 +4,7 @@ import getDetailedForecast from '../helpers/getDetailedForecast';
 import getUpcomingForecast from '../helpers/getUpcomingForecast';
 
 export default function useFetchForecast() {
+  const [error, setError] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [fcast, setFcast] = useState(false)
   const [data, setData] = useState({})
@@ -16,10 +17,14 @@ export default function useFetchForecast() {
 
   async function fetchData(url) {
     let response = await fetch(url)
-    if(!response.ok) throw new Error("Failed to fetch data.")
-    let val = await response.json()
+    if(!response.ok) {
+      setError(true)
+    }  else {
+      setError(false)
+      let val = await response.json()
 
-    return val
+      return val
+    }
   }
 
   async function getData(location) {
@@ -27,16 +32,21 @@ export default function useFetchForecast() {
 
     const weather_url = `${base_url}/weather?q=${location}&appid=${key}`
     let c = await fetchData(weather_url)
-    const onecall_url = `${base_url}/onecall?lat=${c.coord.lat}&lon=${c.coord.lon}&exclude=hourly,minutely&units=metric&appid=${key}`
-    let forecast = await fetchData(`${onecall_url}`)
 
-    forecast.current.city = c.name
-    forecast.current.country = c.sys.country
+    if(!error) {
+      const onecall_url = `${base_url}/onecall?lat=${c.coord.lat}&lon=${c.coord.lon}&exclude=hourly,minutely&units=metric&appid=${key}`
+      let forecast = await fetchData(`${onecall_url}`)
 
-    const current = forecast.current
-    const upcoming_days = forecast.daily
+      if(!error) {
+        forecast.current.city = c.name
+        forecast.current.country = c.sys.country
 
-    filterData({current, upcoming_days})
+        const current = forecast.current
+        const upcoming_days = forecast.daily
+
+        filterData({current, upcoming_days})
+      }
+    }
   }
 
   function filterData(d) {
@@ -49,5 +59,5 @@ export default function useFetchForecast() {
     setFcast(true)
   }
 
-  return { data, isLoading, fcast, searchLocation }
+  return { data, isLoading, error, fcast, searchLocation }
 }
