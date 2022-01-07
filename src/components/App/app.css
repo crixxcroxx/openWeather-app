@@ -1,14 +1,18 @@
-.app {
+.forecast-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 2rem;
 
-  padding: 32px;
+  padding: 2rem;
   background-color: var(--clr-neutral);
 }
 
 @media screen and (min-width: 600px) {
   .app {
+    margin: 2rem;
+  }
+
+  .forecast-wrapper {
     flex-direction: row;
     gap: 0;
 

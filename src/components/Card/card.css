@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 32px;
+  width: 100%;
+  padding: 2rem;
   color: var(--clr-white);
   border-radius: var(--border-radius-main);
   background-color: var(--clr-blue);
@@ -11,19 +12,17 @@
 
 .card-icon {
   width: 120px;
-  height: 120px;
+  aspect-ratio: 1 / 1;
 }
 
 @media screen and (min-width: 600px) {
   .card {
     width: 32ch;
-    padding: 32px;
   }
   .card p {
     font-size: 20px;
   }
   .card-icon {
     width: 100px;
-    height: 100px;
   }
 }

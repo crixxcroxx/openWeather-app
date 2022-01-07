@@ -1,35 +1,36 @@
 .search-box {
-  display: grid;
-  place-items: center;
-
-  padding: 1rem;
-  margin-bottom: 0.5rem;
+  padding: 1rem 2.5rem;
+  margin-block-end: 0.5rem;
   background-color: var(--clr-neutral);
 }
 
 .search-bar {
   display: flex;
-  gap: 10px;
-}
-
-input[type = text], button {
-  padding: 5px;
 }
 
 input[type = text] {
-  flex-basis: 78%;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  font-size: 0.9rem;
 }
 
-button {
-  flex-basis: 20%;
+input[type = text] {
+  width: 100%;
+  border-radius: var(--border-radius-main-l);
+}
+
+.search-bar button {
+  width: 7rem;
+  border-radius: var(--border-radius-main-r);
 }
 
 @media screen and (min-width: 600px) {
-  input[type = text] {
-    width: 39rem;
-  }
   .search-box {
-    margin: -0.5rem 0 0.5rem 0;
+    margin-block-end: 1rem;
     border-radius: var(--border-radius-main);
+  }
+
+  .search-bar button {
+    width: 9rem;
   }
 }

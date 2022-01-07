@@ -2,10 +2,14 @@
 
 :root {
   --clr-blue: #002f4b;
+  --clr-blue-light: #72afd0;
   --clr-neutral: #c7ced3;
   --clr-white: #f4f5f6;
-  --clr-white-a: #eceeefde;
+  --clr-white-a: #ffffffd4;
+  --clr-black-a: #0606068a;
   --border-radius-main: 25px;
+  --border-radius-main-l: 25px 0 0 25px;
+  --border-radius-main-r: 0 25px 25px 0;
   --border-radius-secondary: 15px;
 }
 
@@ -18,25 +22,28 @@ body {
   display: grid;
   place-items: center;
 
-  width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (min-width: 600px) {
-  body {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  h1 {
-    font-size: 50px;
-  }
-  h2 {
-    font-size: 40px;
-  }
+h2 {
+  font-size: 1.8rem;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--clr-white);
+  background-color: var(--clr-blue);
+  border-radius: var(--border-radius-main);
+}
+
+button:hover {
+  color: var(--clr-blue);
+  background-color: var(--clr-blue-light);
 }

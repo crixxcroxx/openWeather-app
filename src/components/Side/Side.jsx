@@ -7,14 +7,12 @@ export default function Side(props) {
   return(
     <div className="side">
       <div className="detailed-info">
-        {//
-          props && Object.entries(currentDetailed).map(([key, value]) =>
-            <div className="item" key={key}>
-              <p className="label">{key}</p>
-              <p className="value">{value}</p>
-            </div>
-          )
-        }
+        {props && Object.entries(currentDetailed).map(([key, value]) =>
+          <div className="item" key={key}>
+            <p className="label">{key}</p>
+            <p className="value">{value}</p>
+          </div>
+        )}
       </div>
       <Weekly upcoming={upcoming} />
     </div>
