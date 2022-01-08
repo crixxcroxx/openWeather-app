@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import './searchBar.css';
 
 export default function SearchBar({ handleForm }) {

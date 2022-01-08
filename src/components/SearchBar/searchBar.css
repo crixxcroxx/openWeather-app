@@ -9,13 +9,10 @@
 }
 
 input[type = text] {
+  width: 100%;
   padding: 0.4rem 0.8rem;
   border: none;
   font-size: 0.9rem;
-}
-
-input[type = text] {
-  width: 100%;
   border-radius: var(--border-radius-main-l);
 }
 
