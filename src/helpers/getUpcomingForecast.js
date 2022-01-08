@@ -1,17 +1,20 @@
 function getDataPerDay(data) {
-  let week = []
+  let weekly = []
+  let dataCopy = data.upcoming_days
 
-  data.upcoming_days.map((item, idx) => {
-    if(idx != 0 && idx < 6) {
-      week.push({
-        dt: item.dt,
-        temp: item.temp.day,
-        weather_icon: `http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`
-      })
-    }
-  })
+  // only show the next 5 days
+  dataCopy.shift()
+  dataCopy.splice(5)
 
-  return week
+  dataCopy.map((item, idx) =>
+    weekly.push({
+      dt: item.dt,
+      temp: item.temp.day,
+      weather_icon: `http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`
+    })
+  )
+
+  return weekly
 }
 
 const getUpcomingForecast = data => getDataPerDay(data)

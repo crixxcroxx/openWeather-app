@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import getShortForecast from '../helpers/getShortForecast';
 import getDetailedForecast from '../helpers/getDetailedForecast';
 import getUpcomingForecast from '../helpers/getUpcomingForecast';

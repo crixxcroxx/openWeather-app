@@ -4,6 +4,9 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 
 function getDateSuffix(d) {
   let sDate = ""
+
+  if(d === 11 || d === 12 || d === 13) return `${d}th`
+
   //get only ones digit
   const ones = d % 10
 
